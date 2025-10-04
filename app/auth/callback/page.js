@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import { handleOAuthCallback } from '../../../auth/google';
 import { getMagic } from '../../../lib/magic';
 
 export default function VaraNetworkAuthCallback() {
@@ -11,24 +10,13 @@ export default function VaraNetworkAuthCallback() {
   useEffect(() => {
     async function processVaraNetworkCallback() {
       try {
-        const varaAddress = await handleOAuthCallback();
-        const magic = getMagic();
-        let userMetadata = null;
-        if (magic) {
-          try {
-            userMetadata = await magic.user.getInfo();
-          } catch (error) {
-            console.warn('Could not get user metadata:', error);
-            userMetadata = { email: 'User' };
-          }
-        }
+        // Simple callback processing - redirect to home
+        console.log('Processing Vara Network authentication callback...');
         
-        console.log('Vara Network OAuth success:', { varaAddress, userMetadata });
-        
-        // Redirect to home page with success
+        // Redirect to home page
         window.location.href = '/';
       } catch (err) {
-        console.error('Vara Network OAuth callback error:', err);
+        console.error('Vara Network callback error:', err);
         setError(err.message);
         setLoading(false);
       }

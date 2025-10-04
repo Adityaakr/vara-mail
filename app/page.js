@@ -3,21 +3,14 @@
 import { useState, useEffect } from 'react';
 import { getMagic } from '../lib/magic';
 import { loginWithEmail } from '../auth/email';
-import { sendVaraTokens } from '../chain/transfer';
 import { isVaraAddress, formatVaraAddress, getAddressInfo } from '../utils/address';
-import { validateVaraAmount, getSuggestedAmounts, formatVaraAmount as formatAmount } from '../utils/amount';
 import './globals.css';
 
 export default function VaraNetworkHome() {
   const [email, setEmail] = useState('');
   const [addr, setAddr] = useState('');
-  const [dest, setDest] = useState('');
-  const [amt, setAmt] = useState('1'); // VARA amount in human-readable format
-  const [amountType, setAmountType] = useState('VARA'); // 'VARA' or 'base'
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [userMetadata, setUserMetadata] = useState({});
-  const [txHash, setTxHash] = useState('');
-  const [sendingTransaction, setSendingTransaction] = useState(false);
   const [loading, setLoading] = useState(true);
   const [magicError, setMagicError] = useState(false);
 
@@ -120,7 +113,6 @@ export default function VaraNetworkHome() {
     setIsLoggedIn(false);
     setAddr('');
     setUserMetadata({});
-    setTxHash('');
   }
 
   async function refreshAddress() {
@@ -142,38 +134,6 @@ export default function VaraNetworkHome() {
     }
   }
 
-  async function handleSendVaraTransaction() {
-    if (!dest || !amt) {
-      alert('Please fill in destination Vara Network address and VARA amount');
-      return;
-    }
-
-    // Validate amount
-    const validation = validateVaraAmount(amt);
-    if (!validation.isValid) {
-      alert(`Invalid amount: ${validation.error}`);
-      return;
-    }
-
-    setSendingTransaction(true);
-    try {
-      // Send with VARA amount (will be converted to base units automatically)
-      const txHash = await sendVaraTokens(dest, amt);
-      setTxHash(txHash);
-      
-      // Show success message with formatted amount
-      const formattedAmount = formatAmount(amt);
-      alert(`✅ ${formattedAmount} sent successfully to Vara Network!`);
-      
-      // Clear form
-      setDest('');
-      setAmt('1');
-    } catch (error) {
-      console.error('Vara Network transaction error:', error);
-      alert('❌ Transaction failed: ' + error.message);
-    }
-    setSendingTransaction(false);
-  }
 
   if (loading) {
     return (
