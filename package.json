@@ -1,21 +1,26 @@
 {
-  "name": "-src",
+  "name": "varanetwork-magic-auth",
   "version": "0.1.0",
   "private": true,
+  "description": "Vara Network passwordless authentication - Seamless Web3 onboarding",
   "scripts": {
-    "dev": "next dev --turbopack",
-    "build": "next build --turbopack",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint"
   },
   "dependencies": {
+    "@magic-ext/polkadot": "^26.0.0",
+    "@polkadot/keyring": "^13.2.3",
+    "@polkadot/util-crypto": "^13.2.3",
+    "magic-sdk": "^31.0.0",
+    "next": "15.5.4",
     "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "next": "15.5.4"
+    "react-dom": "19.1.0"
   },
   "devDependencies": {
+    "@eslint/eslintrc": "^3",
     "eslint": "^9",
-    "eslint-config-next": "15.5.4",
-    "@eslint/eslintrc": "^3"
+    "eslint-config-next": "15.5.4"
   }
 }
