@@ -1,13 +1,13 @@
-# Vara Network - Passwordless Authentication
+# VaraConnect - Onboard, transact, and make micropayments — all in a few clicks.
 
-A Next.js application that integrates passwordless authentication with Vara Network for seamless Web3 onboarding and native VARA token transactions.
+application that integrates passwordless authentication with Vara Network for seamless Web3 onboarding and native VARA token transactions, Micropayments and A2A Payments
 
 ## 🌟 Features
 
 - **📧 Email OTP Authentication**: Secure passwordless login via email verification
 - **🔗 Vara Network Integration**: Direct connection to Vara Network testnet (`wss://testnet.vara.network`)
 - **🏠 Native VARA Addresses**: Uses Vara Network's native SS58 address format (starts with k, g, h, etc.)
-- **💰 VARA Transactions**: Send native VARA tokens on Vara Network testnet
+- **💰 VARA Transactions**: Send native VARA tokens on Vara Network 
 - **🎨 Modern UI**: Clean, responsive interface with Vara Network branding
 
 ## 🚀 Quick Start
@@ -21,9 +21,9 @@ npm install
 ### 2. Environment Setup
 
 Your authentication API key is already configured. The app uses:
-- **Publishable Key**: `pk_live_4D9D3DA5E9716545`
-- **Network**: Vara Network Testnet
-- **RPC Endpoint**: `wss://testnet.vara.network`
+- **Publishable Key**: `check .env.example`
+- **Network**: Vara Network 
+- **RPC Endpoint**: `wss://rpc.vara.network`
 
 ### 3. Configure Authentication Service
 
@@ -77,17 +77,10 @@ Open [http://localhost:3000](http://localhost:3000) to access your Vara Network 
 ├── auth/
 │   ├── email.js           # Email OTP for Vara Network
 │   └── google.js          # Google OAuth for Vara Network
-├── chain/
-│   └── transfer.js        # VARA token transaction functions
 ├── lib/
 │   └── magic.js           # Magic.link + Vara Network configuration
 └── env.example            # Environment template
 ```
-
-## 🔧 Magic.link Extensions
-
-- **@magic-ext/polkadot**: Provides `getAccount()` and `sendTransaction()` for Vara Network
-- **@magic-ext/oauth2**: Enables Google OAuth for Vara Network authentication
 
 ## 🌐 Vara Network Details
 
