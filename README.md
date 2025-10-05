@@ -7,7 +7,7 @@ application that integrates passwordless authentication with Vara Network for se
 - **📧 Email OTP Authentication**: Secure passwordless login via email verification
 - **🔗 Vara Network Integration**: Direct connection to Vara Network testnet (`wss://testnet.vara.network`)
 - **🏠 Native VARA Addresses**: Uses Vara Network's native SS58 address format (starts with k, g, h, etc.)
-- **💰 VARA Transactions**: Send native VARA tokens on Vara Network testnet
+- **💰 VARA Transactions**: Send native VARA tokens on Vara Network 
 - **🎨 Modern UI**: Clean, responsive interface with Vara Network branding
 
 ## 🚀 Quick Start
@@ -77,8 +77,6 @@ Open [http://localhost:3000](http://localhost:3000) to access your Vara Network 
 ├── auth/
 │   ├── email.js           # Email OTP for Vara Network
 │   └── google.js          # Google OAuth for Vara Network
-├── chain/
-│   └── transfer.js        # VARA token transaction functions
 ├── lib/
 │   └── magic.js           # Magic.link + Vara Network configuration
 └── env.example            # Environment template
