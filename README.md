@@ -1,6 +1,6 @@
-# Vara Network - Passwordless Authentication
+# VaraConnect - Onboard, transact, and make micropayments — all in a few clicks.
 
-A Next.js application that integrates passwordless authentication with Vara Network for seamless Web3 onboarding and native VARA token transactions.
+application that integrates passwordless authentication with Vara Network for seamless Web3 onboarding and native VARA token transactions, Micropayments and A2A Payments
 
 ## 🌟 Features
 
@@ -21,9 +21,9 @@ npm install
 ### 2. Environment Setup
 
 Your authentication API key is already configured. The app uses:
-- **Publishable Key**: `pk_live_4D9D3DA5E9716545`
-- **Network**: Vara Network Testnet
-- **RPC Endpoint**: `wss://testnet.vara.network`
+- **Publishable Key**: `check .env.example`
+- **Network**: Vara Network 
+- **RPC Endpoint**: `wss://rpc.vara.network`
 
 ### 3. Configure Authentication Service
 
@@ -83,11 +83,6 @@ Open [http://localhost:3000](http://localhost:3000) to access your Vara Network 
 │   └── magic.js           # Magic.link + Vara Network configuration
 └── env.example            # Environment template
 ```
-
-## 🔧 Magic.link Extensions
-
-- **@magic-ext/polkadot**: Provides `getAccount()` and `sendTransaction()` for Vara Network
-- **@magic-ext/oauth2**: Enables Google OAuth for Vara Network authentication
 
 ## 🌐 Vara Network Details
 
