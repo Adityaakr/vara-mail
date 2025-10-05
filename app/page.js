@@ -164,277 +164,476 @@ export default function VaraNetworkHome() {
 
   return (
     <main>
-      <div style={{ textAlign: 'center', marginBottom: '10px' }}>
-        <img 
-          src="/vara.png" 
-          alt="Vara Network" 
-          style={{ 
-            height: '125px',
-            width: 'auto',
-            marginBottom: '-16px',
-            objectFit: 'contain'
-          }} 
-        />
-        <p style={{ 
-          color: '#64748b', 
-          fontSize: '18px',
-          fontWeight: '500',
-          margin: '0 auto',
-          maxWidth: '400px',
-          lineHeight: '1.6'
-        }}>
-          Secure Web3 Authentication
-        </p>
-      </div>
-
+      <style jsx>{`
+        .benefits-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+          gap: 16px;
+          margin-top: 24px;
+          max-width: 800px;
+          margin: 24px auto 0;
+        }
+        
+        @media (max-width: 768px) {
+          .benefits-grid {
+            grid-template-columns: 1fr !important;
+            gap: 20px !important;
+            padding: 0 16px !important;
+          }
+        }
+      `}</style>
       {!isLoggedIn ? (
         <>
-        <div className="container">
-          <div style={{ marginBottom: '32px' }}>
+        {/* Login Form - Centered */}
+        <div style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginBottom: '32px'
+        }}>
+          <div style={{
+            background: 'rgba(240, 253, 244, 0.3)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(22, 163, 74, 0.1)',
+            borderRadius: '16px',
+            padding: '40px 32px',
+            maxWidth: '480px',
+            width: '100%',
+            boxShadow: '0 8px 32px rgba(0, 0, 0, 0.08)',
+            textAlign: 'center'
+          }}>
+            {/* Vara Logo */}
+            <div style={{
+              display: 'flex',
+              justifyContent: 'center',
+            }}>
+              <img 
+                src="/vara.png" 
+                alt="Vara Network" 
+                style={{ 
+                  height: '72px',
+                  width: 'auto',
+                  objectFit: 'contain'
+                }} 
+              />
+            </div>
+
             <h2 style={{ 
-              fontSize: '24px', 
-              marginBottom: '12px', 
+              fontSize: '32px', 
+              marginBottom: '8px', 
               paddingBottom: '0',
               fontWeight: '700',
               color: '#16a34a'
             }}>
-              Access Your Account
+              Welcome Back
             </h2>
             <p style={{ 
               color: '#64748b', 
               fontSize: '16px', 
-              marginBottom: '0',
+              marginBottom: '32px',
               lineHeight: '1.5',
               fontWeight: '400'
             }}>
-              Enter your email for secure authentication
+              Sign in to your account to continue
             </p>
-          </div>
-          
-          <form onSubmit={handleEmailLogin} style={{ marginBottom: '32px' }}>
-            <div style={{ marginBottom: '24px' }}>
-              <input 
-                name="email" 
-                type="email"
-                placeholder="Enter your email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                style={{
-                  marginBottom: '0'
-                }}
-              />
-            </div>
             
-            <button type="submit" style={{ marginBottom: '0' }}>
-              Sign In
-            </button>
-          </form>
+            <form onSubmit={handleEmailLogin} style={{ marginBottom: '24px' }}>
+              <div style={{ marginBottom: '16px' }}>
+                <label style={{
+                  display: 'block',
+                  fontSize: '14px',
+                  fontWeight: '600',
+                  color: '#374151',
+                  marginBottom: '8px',
+                  textAlign: 'left'
+                }}>
+                  Email Address
+                </label>
+                <input 
+                  name="email" 
+                  type="email"
+                  placeholder="name@example.com"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  style={{
+                    width: '100%',
+                    padding: '16px',
+                    border: '2px solid #e5e7eb',
+                    borderRadius: '12px',
+                    fontSize: '16px',
+                    backgroundColor: '#ffffff',
+                    transition: 'all 0.2s ease',
+                    outline: 'none',
+                    marginBottom: '0',
+                    textAlign: 'center'
+                  }}
+                  onFocus={(e) => {
+                    e.target.style.borderColor = '#16a34a';
+                    e.target.style.boxShadow = '0 0 0 3px rgba(22, 163, 74, 0.1)';
+                    e.target.style.textAlign = 'left';
+                  }}
+                  onBlur={(e) => {
+                    e.target.style.borderColor = '#e5e7eb';
+                    e.target.style.boxShadow = 'none';
+                    if (!e.target.value) {
+                      e.target.style.textAlign = 'center';
+                    }
+                  }}
+                />
+              </div>
+              
+              <button 
+                type="submit" 
+                style={{ 
+                  width: '100%',
+                  padding: '16px',
+                  background: '#16a34a',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '12px',
+                  fontSize: '16px',
+                  fontWeight: '600',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                  marginBottom: '0',
+                  boxShadow: '0 4px 12px rgba(22, 163, 74, 0.3)'
+                }}
+                onMouseOver={(e) => {
+                  e.target.style.background = '#15803d';
+                  e.target.style.transform = 'translateY(-1px)';
+                }}
+                onMouseOut={(e) => {
+                  e.target.style.background = '#16a34a';
+                  e.target.style.transform = 'translateY(0)';
+                }}
+              >
+                Continue with Email
+              </button>
+            </form>
 
-          <div style={{
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            gap: '8px',
-            padding: '16px',
-            background: 'rgba(22, 163, 74, 0.05)',
-            borderRadius: '12px',
-            border: '1px solid rgba(22, 163, 74, 0.1)'
-          }}>
-            <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <div style={{ 
-                  width: '8px', 
-                  height: '8px', 
-                  borderRadius: '50%', 
-                  background: '#16a34a' 
-                }}></div>
-                <span style={{ 
-                  fontSize: '13px', 
-                  color: '#16a34a', 
-                  fontWeight: '600' 
-                }}>
-                  Secure
-                </span>
-              </div>
-              <div style={{ width: '1px', height: '12px', background: '#e2e8f0' }}></div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <div style={{ 
-                  width: '8px', 
-                  height: '8px', 
-                  borderRadius: '50%', 
-                  background: '#16a34a' 
-                }}></div>
-                <span style={{ 
-                  fontSize: '13px', 
-                  color: '#16a34a', 
-                  fontWeight: '600' 
-                }}>
-                  Passwordless
-                </span>
-              </div>
-              <div style={{ width: '1px', height: '12px', background: '#e2e8f0' }}></div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <div style={{ 
-                  width: '8px', 
-                  height: '8px', 
-                  borderRadius: '50%', 
-                  background: '#16a34a' 
-                }}></div>
-                <span style={{ 
-                  fontSize: '13px', 
-                  color: '#16a34a', 
-                  fontWeight: '600' 
-                }}>
-                  Web3 Ready
-                </span>
+            <div style={{
+              marginTop: '24px',
+              padding: '16px',
+              background: 'rgba(22, 163, 74, 0.05)',
+              borderRadius: '12px',
+              border: '1px solid rgba(22, 163, 74, 0.1)',
+              fontSize: '12px',
+              color: '#64748b',
+              textAlign: 'center'
+            }}>
+              By signing in, you agree to our <span style={{ color: '#16a34a', textDecoration: 'underline', cursor: 'pointer' }}>Terms of Service</span> and <span style={{ color: '#16a34a', textDecoration: 'underline', cursor: 'pointer' }}>Privacy Policy</span>
+            </div>
+
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '8px',
+              padding: '16px',
+              background: 'rgba(22, 163, 74, 0.05)',
+              borderRadius: '12px',
+              border: '1px solid rgba(22, 163, 74, 0.1)',
+              marginTop: '16px'
+            }}>
+              <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <div style={{ 
+                    width: '8px', 
+                    height: '8px', 
+                    borderRadius: '50%', 
+                    background: '#16a34a' 
+                  }}></div>
+                  <span style={{ 
+                    fontSize: '13px', 
+                    color: '#16a34a', 
+                    fontWeight: '600' 
+                  }}>
+                    Secure
+                  </span>
+                </div>
+                <div style={{ width: '1px', height: '12px', background: '#e2e8f0' }}></div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <div style={{ 
+                    width: '8px', 
+                    height: '8px', 
+                    borderRadius: '50%', 
+                    background: '#16a34a' 
+                  }}></div>
+                  <span style={{ 
+                    fontSize: '13px', 
+                    color: '#16a34a', 
+                    fontWeight: '600' 
+                  }}>
+                    Passwordless
+                  </span>
+                </div>
+                <div style={{ width: '1px', height: '12px', background: '#e2e8f0' }}></div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                  <div style={{ 
+                    width: '8px', 
+                    height: '8px', 
+                    borderRadius: '50%', 
+                    background: '#16a34a' 
+                  }}></div>
+                  <span style={{ 
+                    fontSize: '13px', 
+                    color: '#16a34a', 
+                    fontWeight: '600' 
+                  }}>
+                    Onboarding
+                  </span>
+                </div>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Why Vara Network Box */}
-        <div className="container" style={{ 
-          marginTop: '24px',
-          padding: '32px 32px',
-          background: 'linear-gradient(135deg, rgba(22, 163, 74, 0.03) 0%, rgba(255, 255, 255, 0.95) 100%)',
-          backdropFilter: 'blur(20px)',
-          border: '1px solid rgba(22, 163, 74, 0.1)'
-        }}>
-          <div style={{ marginBottom: '24px' }}>
-            <h3 style={{ 
-              fontSize: '20px', 
+        {/* Benefits of This Login Method */}
+        <div className="benefits-grid">
+          {/* Passwordless Authentication */}
+          <div style={{
+            background: 'rgba(240, 253, 244, 0.5)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(22, 163, 74, 0.15)',
+            borderRadius: '16px',
+            padding: '24px',
+            textAlign: 'center',
+            transition: 'all 0.3s ease',
+            cursor: 'pointer'
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.transform = 'translateY(-4px)';
+            e.currentTarget.style.boxShadow = '0 12px 32px rgba(22, 163, 74, 0.15)';
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = 'none';
+          }}>
+            <div style={{
+              width: '48px',
+              height: '48px',
+              background: '#16a34a',
+              borderRadius: '12px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '20px',
+              color: 'white',
+              margin: '0 auto 16px',
+              boxShadow: '0 4px 12px rgba(22, 163, 74, 0.3)'
+            }}>
+              🔐
+            </div>
+            <h3 style={{
+              fontSize: '18px',
               fontWeight: '700',
               color: '#16a34a',
-              marginBottom: '16px',
-              paddingBottom: '0',
-              textAlign: 'center'
+              marginBottom: '8px',
+              paddingBottom: '0'
             }}>
-              Why Choose Vara Network?
+              Passwordless Security
             </h3>
-          </div>
-          
-          <div style={{ 
-            display: 'grid', 
-            gap: '20px',
-            textAlign: 'left'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-              <div style={{ 
-                width: '32px', 
-                height: '32px', 
-                background: 'linear-gradient(135deg, #16a34a, #15803d)', 
-                borderRadius: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '16px',
-                flexShrink: 0,
-                marginTop: '2px'
-              }}>⚡</div>
-              <div>
-                <div style={{ fontSize: '16px', fontWeight: '600', color: '#1a1a1a', marginBottom: '4px' }}>
-                  Next-Generation Blockchain
-                </div>
-                <div style={{ fontSize: '14px', color: '#64748b', lineHeight: '1.5' }}>
-                  Built on cutting-edge technology with parallel processing and smart contract capabilities for unmatched performance.
-                </div>
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-              <div style={{ 
-                width: '32px', 
-                height: '32px', 
-                background: 'linear-gradient(135deg, #16a34a, #15803d)', 
-                borderRadius: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '16px',
-                flexShrink: 0,
-                marginTop: '2px'
-              }}>▲</div>
-              <div>
-                <div style={{ fontSize: '16px', fontWeight: '600', color: '#1a1a1a', marginBottom: '4px' }}>
-                  Lightning Fast & Scalable
-                </div>
-                <div style={{ fontSize: '14px', color: '#64748b', lineHeight: '1.5' }}>
-                  Experience instant transactions with minimal fees, designed to scale for millions of users worldwide.
-                </div>
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-              <div style={{ 
-                width: '32px', 
-                height: '32px', 
-                background: 'linear-gradient(135deg, #16a34a, #15803d)', 
-                borderRadius: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '16px',
-                flexShrink: 0,
-                marginTop: '2px'
-              }}>◆</div>
-              <div>
-                <div style={{ fontSize: '16px', fontWeight: '600', color: '#1a1a1a', marginBottom: '4px' }}>
-                  Enterprise-Grade Security
-                </div>
-                <div style={{ fontSize: '14px', color: '#64748b', lineHeight: '1.5' }}>
-                  Advanced cryptographic protocols and account abstraction ensure your assets and data remain completely secure.
-                </div>
-              </div>
-            </div>
-
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
-              <div style={{ 
-                width: '32px', 
-                height: '32px', 
-                background: 'linear-gradient(135deg, #16a34a, #15803d)', 
-                borderRadius: '8px',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                fontSize: '16px',
-                flexShrink: 0,
-                marginTop: '2px'
-              }}>●</div>
-              <div>
-                <div style={{ fontSize: '16px', fontWeight: '600', color: '#1a1a1a', marginBottom: '4px' }}>
-                  Developer-Friendly Ecosystem
-                </div>
-                <div style={{ fontSize: '14px', color: '#64748b', lineHeight: '1.5' }}>
-                  Comprehensive tools, documentation, and APIs make building on Vara Network intuitive and powerful.
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div style={{
-            marginTop: '24px',
-            padding: '16px',
-            background: 'rgba(22, 163, 74, 0.05)',
-            borderRadius: '12px',
-            border: '1px solid rgba(22, 163, 74, 0.1)',
-            textAlign: 'center'
-          }}>
-            <div style={{ 
-              fontSize: '14px', 
-              color: '#16a34a', 
-              fontWeight: '600',
-              marginBottom: '4px'
-            }}>
-              ★ Ready to Experience the Future?
-            </div>
-            <div style={{ 
-              fontSize: '13px', 
+            <p style={{
+              fontSize: '14px',
               color: '#64748b',
-              lineHeight: '1.4'
+              lineHeight: '1.5',
+              margin: '0'
             }}>
-              Join thousands of developers and users building the next generation of decentralized applications.
+              No passwords to remember or manage. Just enter your email and get instant secure access via magic link authentication.
+            </p>
+          </div>
+
+          {/* Micropayments */}
+          <div style={{
+            background: 'rgba(240, 253, 244, 0.5)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(22, 163, 74, 0.15)',
+            borderRadius: '16px',
+            padding: '24px',
+            textAlign: 'center',
+            transition: 'all 0.3s ease',
+            cursor: 'pointer',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.transform = 'translateY(-4px)';
+            e.currentTarget.style.boxShadow = '0 12px 32px rgba(22, 163, 74, 0.15)';
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = 'none';
+          }}>
+            <div style={{
+              position: 'absolute',
+              top: '12px',
+              right: '12px',
+              background: '#16a34a',
+              color: 'white',
+              padding: '4px 8px',
+              borderRadius: '12px',
+              fontSize: '10px',
+              fontWeight: '600',
+              textTransform: 'uppercase',
+              letterSpacing: '0.5px'
+            }}>
+              Coming Soon
             </div>
+            <div style={{
+              width: '48px',
+              height: '48px',
+              background: '#16a34a',
+              borderRadius: '12px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '20px',
+              color: 'white',
+              margin: '0 auto 16px',
+              boxShadow: '0 4px 12px rgba(22, 163, 74, 0.3)'
+            }}>
+              ⚡
+            </div>
+            <h3 style={{
+              fontSize: '18px',
+              fontWeight: '700',
+              color: '#16a34a',
+              marginBottom: '8px',
+              paddingBottom: '0'
+            }}>
+              Micropayments
+            </h3>
+            <p style={{
+              fontSize: '14px',
+              color: '#64748b',
+              lineHeight: '1.5',
+              margin: '0'
+            }}>
+              Send tiny payments instantly with ultra-low fees. Perfect for content creators, subscriptions, and pay-per-use services.
+            </p>
+          </div>
+
+          {/* Web3 Integration */}
+          <div style={{
+            background: 'rgba(240, 253, 244, 0.5)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(22, 163, 74, 0.15)',
+            borderRadius: '16px',
+            padding: '24px',
+            textAlign: 'center',
+            transition: 'all 0.3s ease',
+            cursor: 'pointer'
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.transform = 'translateY(-4px)';
+            e.currentTarget.style.boxShadow = '0 12px 32px rgba(22, 163, 74, 0.15)';
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = 'none';
+          }}>
+            <div style={{
+              width: '48px',
+              height: '48px',
+              background: '#16a34a',
+              borderRadius: '12px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '20px',
+              color: 'white',
+              margin: '0 auto 16px',
+              boxShadow: '0 4px 12px rgba(22, 163, 74, 0.3)'
+            }}>
+              🌐
+            </div>
+            <h3 style={{
+              fontSize: '18px',
+              fontWeight: '700',
+              color: '#16a34a',
+              marginBottom: '8px',
+              paddingBottom: '0'
+            }}>
+              Onboarding
+            </h3>
+            <p style={{
+              fontSize: '14px',
+              color: '#64748b',
+              lineHeight: '1.5',
+              margin: '0'
+            }}>
+              Seamlessly connect to the Vara Network blockchain with automatic wallet creation and secure key management.
+            </p>
+          </div>
+
+          {/* Agent-to-Agent Payments */}
+          <div style={{
+            background: 'rgba(240, 253, 244, 0.5)',
+            backdropFilter: 'blur(20px)',
+            border: '1px solid rgba(22, 163, 74, 0.15)',
+            borderRadius: '16px',
+            padding: '24px',
+            textAlign: 'center',
+            transition: 'all 0.3s ease',
+            cursor: 'pointer',
+            position: 'relative',
+            overflow: 'hidden'
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.transform = 'translateY(-4px)';
+            e.currentTarget.style.boxShadow = '0 12px 32px rgba(22, 163, 74, 0.15)';
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = 'none';
+          }}>
+            <div style={{
+              position: 'absolute',
+              top: '12px',
+              right: '12px',
+              background: '#16a34a',
+              color: 'white',
+              padding: '4px 8px',
+              borderRadius: '12px',
+              fontSize: '10px',
+              fontWeight: '600',
+              textTransform: 'uppercase',
+              letterSpacing: '0.5px'
+            }}>
+              In Development
+            </div>
+            <div style={{
+              width: '48px',
+              height: '48px',
+              background: '#16a34a',
+              borderRadius: '12px',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              fontSize: '20px',
+              color: 'white',
+              margin: '0 auto 16px',
+              boxShadow: '0 4px 12px rgba(22, 163, 74, 0.3)'
+            }}>
+              🤖
+            </div>
+            <h3 style={{
+              fontSize: '18px',
+              fontWeight: '700',
+              color: '#16a34a',
+              marginBottom: '8px',
+              paddingBottom: '0'
+            }}>
+              Agent-to-Agent Payments
+            </h3>
+            <p style={{
+              fontSize: '14px',
+              color: '#64748b',
+              lineHeight: '1.5',
+              margin: '0'
+            }}>
+              Autonomous AI agents will be able to transact directly with each other, enabling new forms of automated commerce and services.
+            </p>
           </div>
         </div>
         </>
