@@ -188,6 +188,7 @@ export default function VaraNetworkHome() {
       </div>
 
       {!isLoggedIn ? (
+        <>
         <div className="container">
           <div style={{ marginBottom: '32px' }}>
             <h2 style={{ 
@@ -291,6 +292,152 @@ export default function VaraNetworkHome() {
             </div>
           </div>
         </div>
+
+        {/* Why Vara Network Box */}
+        <div className="container" style={{ 
+          marginTop: '24px',
+          padding: '32px 32px',
+          background: 'linear-gradient(135deg, rgba(22, 163, 74, 0.03) 0%, rgba(255, 255, 255, 0.95) 100%)',
+          backdropFilter: 'blur(20px)',
+          border: '1px solid rgba(22, 163, 74, 0.1)'
+        }}>
+          <div style={{ marginBottom: '24px' }}>
+            <h3 style={{ 
+              fontSize: '20px', 
+              fontWeight: '700',
+              color: '#16a34a',
+              marginBottom: '16px',
+              paddingBottom: '0',
+              textAlign: 'center'
+            }}>
+              Why Choose Vara Network?
+            </h3>
+          </div>
+          
+          <div style={{ 
+            display: 'grid', 
+            gap: '20px',
+            textAlign: 'left'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+              <div style={{ 
+                width: '32px', 
+                height: '32px', 
+                background: 'linear-gradient(135deg, #16a34a, #15803d)', 
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '16px',
+                flexShrink: 0,
+                marginTop: '2px'
+              }}>⚡</div>
+              <div>
+                <div style={{ fontSize: '16px', fontWeight: '600', color: '#1a1a1a', marginBottom: '4px' }}>
+                  Next-Generation Blockchain
+                </div>
+                <div style={{ fontSize: '14px', color: '#64748b', lineHeight: '1.5' }}>
+                  Built on cutting-edge technology with parallel processing and smart contract capabilities for unmatched performance.
+                </div>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+              <div style={{ 
+                width: '32px', 
+                height: '32px', 
+                background: 'linear-gradient(135deg, #16a34a, #15803d)', 
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '16px',
+                flexShrink: 0,
+                marginTop: '2px'
+              }}>▲</div>
+              <div>
+                <div style={{ fontSize: '16px', fontWeight: '600', color: '#1a1a1a', marginBottom: '4px' }}>
+                  Lightning Fast & Scalable
+                </div>
+                <div style={{ fontSize: '14px', color: '#64748b', lineHeight: '1.5' }}>
+                  Experience instant transactions with minimal fees, designed to scale for millions of users worldwide.
+                </div>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+              <div style={{ 
+                width: '32px', 
+                height: '32px', 
+                background: 'linear-gradient(135deg, #16a34a, #15803d)', 
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '16px',
+                flexShrink: 0,
+                marginTop: '2px'
+              }}>◆</div>
+              <div>
+                <div style={{ fontSize: '16px', fontWeight: '600', color: '#1a1a1a', marginBottom: '4px' }}>
+                  Enterprise-Grade Security
+                </div>
+                <div style={{ fontSize: '14px', color: '#64748b', lineHeight: '1.5' }}>
+                  Advanced cryptographic protocols and account abstraction ensure your assets and data remain completely secure.
+                </div>
+              </div>
+            </div>
+
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
+              <div style={{ 
+                width: '32px', 
+                height: '32px', 
+                background: 'linear-gradient(135deg, #16a34a, #15803d)', 
+                borderRadius: '8px',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                fontSize: '16px',
+                flexShrink: 0,
+                marginTop: '2px'
+              }}>●</div>
+              <div>
+                <div style={{ fontSize: '16px', fontWeight: '600', color: '#1a1a1a', marginBottom: '4px' }}>
+                  Developer-Friendly Ecosystem
+                </div>
+                <div style={{ fontSize: '14px', color: '#64748b', lineHeight: '1.5' }}>
+                  Comprehensive tools, documentation, and APIs make building on Vara Network intuitive and powerful.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style={{
+            marginTop: '24px',
+            padding: '16px',
+            background: 'rgba(22, 163, 74, 0.05)',
+            borderRadius: '12px',
+            border: '1px solid rgba(22, 163, 74, 0.1)',
+            textAlign: 'center'
+          }}>
+            <div style={{ 
+              fontSize: '14px', 
+              color: '#16a34a', 
+              fontWeight: '600',
+              marginBottom: '4px'
+            }}>
+              ★ Ready to Experience the Future?
+            </div>
+            <div style={{ 
+              fontSize: '13px', 
+              color: '#64748b',
+              lineHeight: '1.4'
+            }}>
+              Join thousands of developers and users building the next generation of decentralized applications.
+            </div>
+          </div>
+        </div>
+        </>
       ) : (
         <div style={{ width: '100%', maxWidth: '500px' }}>
           {/* User Header */}
