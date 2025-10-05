@@ -163,262 +163,510 @@ export default function VaraNetworkHome() {
   }
 
   return (
-    <main style={{ padding: 24 }}>
-      <h1>Vara Network - Secure Access</h1>
-      <p style={{ marginBottom: 24, color: '#666' }}>
-        Seamless Web3 onboarding for Vara Network with passwordless authentication
-      </p>
+    <main>
+      <div style={{ textAlign: 'center', marginBottom: '10px' }}>
+        <img 
+          src="/vara.png" 
+          alt="Vara Network" 
+          style={{ 
+            height: '125px',
+            width: 'auto',
+            marginBottom: '-16px',
+            objectFit: 'contain'
+          }} 
+        />
+        <p style={{ 
+          color: '#64748b', 
+          fontSize: '18px',
+          fontWeight: '500',
+          margin: '0 auto',
+          maxWidth: '400px',
+          lineHeight: '1.6'
+        }}>
+          Secure Web3 Authentication
+        </p>
+      </div>
 
       {!isLoggedIn ? (
         <div className="container">
-          <h2>🚀 Access Vara Network</h2>
-          <p style={{ 
-            color: '#4a5568', 
-            fontSize: '16px', 
-            marginBottom: '32px',
-            lineHeight: '1.6'
-          }}>
-            Enter your email to get started with secure, passwordless authentication
-          </p>
+          <div style={{ marginBottom: '32px' }}>
+            <h2 style={{ 
+              fontSize: '24px', 
+              marginBottom: '12px', 
+              paddingBottom: '0',
+              fontWeight: '700',
+              color: '#16a34a'
+            }}>
+              Access Your Account
+            </h2>
+            <p style={{ 
+              color: '#64748b', 
+              fontSize: '16px', 
+              marginBottom: '0',
+              lineHeight: '1.5',
+              fontWeight: '400'
+            }}>
+              Enter your email for secure authentication
+            </p>
+          </div>
           
-          <form onSubmit={handleEmailLogin}>
+          <form onSubmit={handleEmailLogin} style={{ marginBottom: '32px' }}>
             <div style={{ marginBottom: '24px' }}>
-              <label style={{ 
-                display: 'block', 
-                marginBottom: '8px', 
-                fontWeight: '600',
-                color: '#2d3748',
-                fontSize: '14px',
-                textTransform: 'uppercase',
-                letterSpacing: '0.5px'
-              }}>
-                Email Address
-              </label>
               <input 
                 name="email" 
                 type="email"
-                placeholder="your@email.com"
+                placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
                 style={{
-                  fontSize: '18px',
-                  padding: '20px',
-                  borderRadius: '16px',
-                  border: '2px solid rgba(0, 212, 170, 0.2)',
-                  background: 'rgba(255, 255, 255, 0.95)',
-                  transition: 'all 0.3s ease',
-                  boxShadow: '0 4px 12px rgba(0, 212, 170, 0.1)'
+                  marginBottom: '0'
                 }}
               />
             </div>
             
-            <button 
-              type="submit"
-              style={{
-                fontSize: '18px',
-                fontWeight: '700',
-                padding: '20px',
-                borderRadius: '16px',
-                background: 'linear-gradient(135deg, #00d4aa 0%, #00a085 100%)',
-                border: 'none',
-                color: 'white',
-                width: '100%',
-                cursor: 'pointer',
-                transition: 'all 0.3s ease',
-                boxShadow: '0 8px 25px rgba(0, 212, 170, 0.4)',
-                textTransform: 'uppercase',
-                letterSpacing: '1px'
-              }}
-            >
-              🔐 Secure Email Authentication
+            <button type="submit" style={{ marginBottom: '0' }}>
+              Sign In
             </button>
           </form>
 
-          <div style={{ 
-            marginTop: '24px',
-            padding: '20px',
-            background: 'linear-gradient(135deg, #f0fdf9 0%, #ecfdf5 100%)',
-            borderRadius: '16px',
-            border: '2px solid rgba(0, 212, 170, 0.1)'
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            gap: '8px',
+            padding: '16px',
+            background: 'rgba(22, 163, 74, 0.05)',
+            borderRadius: '12px',
+            border: '1px solid rgba(22, 163, 74, 0.1)'
           }}>
-            <div style={{ 
-              display: 'flex', 
-              alignItems: 'center', 
-              marginBottom: '12px' 
-            }}>
-              <span style={{ fontSize: '24px', marginRight: '12px' }}>✨</span>
-              <h3 style={{ 
-                margin: 0, 
-                color: '#065f46', 
-                fontSize: '16px',
-                fontWeight: '700'
-              }}>
-                Why Passwordless?
-              </h3>
+            <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <div style={{ 
+                  width: '8px', 
+                  height: '8px', 
+                  borderRadius: '50%', 
+                  background: '#16a34a' 
+                }}></div>
+                <span style={{ 
+                  fontSize: '13px', 
+                  color: '#16a34a', 
+                  fontWeight: '600' 
+                }}>
+                  Secure
+                </span>
+              </div>
+              <div style={{ width: '1px', height: '12px', background: '#e2e8f0' }}></div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <div style={{ 
+                  width: '8px', 
+                  height: '8px', 
+                  borderRadius: '50%', 
+                  background: '#16a34a' 
+                }}></div>
+                <span style={{ 
+                  fontSize: '13px', 
+                  color: '#16a34a', 
+                  fontWeight: '600' 
+                }}>
+                  Passwordless
+                </span>
+              </div>
+              <div style={{ width: '1px', height: '12px', background: '#e2e8f0' }}></div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+                <div style={{ 
+                  width: '8px', 
+                  height: '8px', 
+                  borderRadius: '50%', 
+                  background: '#16a34a' 
+                }}></div>
+                <span style={{ 
+                  fontSize: '13px', 
+                  color: '#16a34a', 
+                  fontWeight: '600' 
+                }}>
+                  Web3 Ready
+                </span>
+              </div>
             </div>
-            <ul style={{ 
-              margin: 0, 
-              paddingLeft: '20px', 
-              color: '#047857',
-              fontSize: '14px',
-              lineHeight: '1.6'
-            }}>
-              <li>🔒 <strong>No passwords</strong> - Ultra-secure authentication</li>
-              <li>⚡ <strong>Instant access</strong> - One-click email verification</li>
-              <li>🛡️ <strong>Account abstraction</strong> - Your keys, secured & managed</li>
-              <li>🌐 <strong>Native Vara</strong> - Direct integration with Vara Network</li>
-            </ul>
           </div>
         </div>
       ) : (
-        <div>
-          {/* Dashboard Header */}
-          <div className="dashboard-header">
-            <div className="user-info">
-              <div className="avatar">
-                {userMetadata.email ? userMetadata.email.charAt(0).toUpperCase() : 'U'}
+        <div style={{ width: '100%', maxWidth: '500px' }}>
+          {/* User Header */}
+          <div className="dashboard-card" style={{ marginBottom: '20px' }}>
+            <div style={{ 
+              display: 'flex', 
+              justifyContent: 'space-between', 
+              alignItems: 'center'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <div style={{
+                  width: '48px',
+                  height: '48px',
+                  borderRadius: '50%',
+                  background: 'linear-gradient(135deg, #16a34a, #15803d)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  color: 'white',
+                  fontSize: '18px',
+                  fontWeight: '700',
+                  boxShadow: '0 4px 12px rgba(22, 163, 74, 0.3)'
+                }}>
+                  {userMetadata.email ? userMetadata.email.charAt(0).toUpperCase() : 'U'}
+                </div>
+                <div>
+                  <h3 style={{ 
+                    margin: 0, 
+                    fontSize: '18px', 
+                    fontWeight: '700',
+                    color: '#1a1a1a',
+                    paddingBottom: '0'
+                  }}>
+                    Welcome back!
+                  </h3>
+                  <p style={{ 
+                    margin: 0, 
+                    fontSize: '14px', 
+                    color: '#64748b',
+                    textAlign: 'left'
+                  }}>
+                    {userMetadata.email || 'user@example.com'}
+                  </p>
+                </div>
               </div>
-              <div className="user-details">
-                <h2 className="user-name">
-                  {userMetadata.email ? userMetadata.email.split('@')[0] : 'User'}
-                </h2>
-                <p className="user-email">{userMetadata.email || 'user@example.com'}</p>
-              </div>
+              <button 
+                onClick={handleLogout}
+                className="logout-button"
+                style={{
+                  padding: '10px 16px',
+                  background: '#f1f5f9',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '8px',
+                  fontSize: '14px',
+                  color: '#64748b',
+                  cursor: 'pointer',
+                  fontWeight: '600',
+                  transition: 'all 0.2s ease',
+                  minWidth: '80px',
+                  textAlign: 'center'
+                }}
+              >
+                Logout
+              </button>
             </div>
-            <button 
-              className="logout-btn" 
-              onClick={handleLogout}
-              title="Logout"
-            >
-              🚪
-            </button>
           </div>
 
-          {/* Main Dashboard Content */}
-          <div className="dashboard-content">
-            
-            {/* Primary Account Card - Full Width */}
-            <div className="main-account-card">
-              <div className="account-info-section">
-                <h3>🏠 Your Vara Network Account</h3>
-                <div className="status-indicator">
-                  <span className={`status-dot ${isVaraAddress(addr) ? 'connected' : 'warning'}`}></span>
-                  <span className="status-text">
-                    {isVaraAddress(addr) ? 'Native SS58 Format' : 'Generic Format'}
-                  </span>
-                </div>
-              </div>
-
-              <div className="address-section">
-                <div className="address-header">
-                  <h4>Vara Network Address</h4>
-                  <div className="address-actions">
-                    {!addr && isLoggedIn && (
-                      <button 
-                        className="refresh-address-btn"
-                        onClick={refreshAddress}
-                        title="Refresh address"
-                      >
-                        🔄 Refresh
-                      </button>
-                    )}
+          {/* Account Overview */}
+          <div className="dashboard-card">
+            <div className="card-title">
+              <span>🏠</span>
+              Your Vara Account
+            </div>
+            <div style={{
+              background: '#f8fafc',
+              border: '1px solid #e2e8f0',
+              borderRadius: '12px',
+              padding: '16px',
+              marginBottom: '16px'
+            }}>
+              <div style={{ 
+                display: 'flex', 
+                justifyContent: 'space-between', 
+                alignItems: 'center',
+                marginBottom: '8px'
+              }}>
+                <span style={{ fontSize: '12px', color: '#64748b', fontWeight: '500' }}>
+                  Address
+                </span>
+                <div style={{ display: 'flex', gap: '8px' }}>
+                  {!addr && isLoggedIn && (
                     <button 
-                      className="copy-address-btn"
-                      onClick={() => {
-                        if (addr) {
-                          navigator.clipboard.writeText(addr);
-                          alert('Address copied!');
-                        } else {
-                          alert('No address to copy yet');
-                        }
+                      onClick={refreshAddress}
+                      style={{
+                        padding: '4px 8px',
+                        background: '#ffffff',
+                        border: '1px solid #e2e8f0',
+                        borderRadius: '6px',
+                        fontSize: '11px',
+                        color: '#64748b',
+                        cursor: 'pointer'
                       }}
-                      title="Copy address"
-                      disabled={!addr}
                     >
-                      📋 Copy
+                      🔄
                     </button>
-                  </div>
+                  )}
+                  <button 
+                    onClick={() => {
+                      if (addr) {
+                        navigator.clipboard.writeText(addr);
+                        alert('Address copied!');
+                      }
+                    }}
+                    disabled={!addr}
+                    style={{
+                      padding: '4px 8px',
+                      background: addr ? '#ffffff' : '#f8fafc',
+                      border: '1px solid #e2e8f0',
+                      borderRadius: '6px',
+                      fontSize: '11px',
+                      color: addr ? '#64748b' : '#94a3b8',
+                      cursor: addr ? 'pointer' : 'not-allowed'
+                    }}
+                  >
+                    📋
+                  </button>
                 </div>
-                <div className="address-display-box">
-                  <span className="address-value">
-                    {addr ? addr : (isLoggedIn ? 'Loading your Vara Network address...' : 'Address will appear after login')}
-                  </span>
-                </div>
-                <p className="address-description">
-                  This is your unique Vara Network address in SS58 format
-                </p>
               </div>
-
-              <div className="actions-section">
-                <a 
-                  href={`https://vara.subscan.io/account/${addr}`} 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="dashboard-action-btn primary"
-                >
-                  🔍 View on Explorer
-                </a>
-                <a 
-                  href="https://idea.gear-tech.io/programs?node=wss%3A%2F%2Ftestnet.vara.network" 
-                  target="_blank" 
-                  rel="noreferrer"
-                  className="dashboard-action-btn secondary"
-                >
-                  💧 Get Testnet Tokens
-                </a>
+              <div style={{
+                fontSize: '13px',
+                fontFamily: 'Monaco, Menlo, monospace',
+                color: '#16a34a',
+                wordBreak: 'break-all',
+                lineHeight: '1.4',
+                fontWeight: '600'
+              }}>
+                {addr || 'Loading your address...'}
               </div>
             </div>
 
-            {/* Info Cards Row */}
-            <div className="info-cards-row">
-              <div className="info-card network-info">
-                <h4>🌐 Network Information</h4>
-                <div className="info-grid">
-                  <div className="info-item">
-                    <span className="info-label">Network</span>
-                    <span className="info-value">Vara Mainnet</span>
+            {/* Quick Actions */}
+            <div style={{ 
+              display: 'grid', 
+              gridTemplateColumns: '1fr 1fr', 
+              gap: '12px'
+            }}>
+              <a 
+                href={`https://vara.subscan.io/account/${addr}`} 
+                target="_blank" 
+                rel="noreferrer"
+                style={{
+                  padding: '12px 16px',
+                  background: '#16a34a',
+                  color: 'white',
+                  textDecoration: 'none',
+                  borderRadius: '8px',
+                  fontSize: '13px',
+                  fontWeight: '600',
+                  textAlign: 'center',
+                  transition: 'all 0.2s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '6px'
+                }}
+              >
+                🔍 Explorer
+              </a>
+              <a 
+                href="https://idea.gear-tech.io/programs?node=wss%3A%2F%2Ftestnet.vara.network" 
+                target="_blank" 
+                rel="noreferrer"
+                style={{
+                  padding: '12px 16px',
+                  background: '#f1f5f9',
+                  color: '#16a34a',
+                  textDecoration: 'none',
+                  border: '1px solid #e2e8f0',
+                  borderRadius: '8px',
+                  fontSize: '13px',
+                  fontWeight: '600',
+                  textAlign: 'center',
+                  transition: 'all 0.2s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '6px'
+                }}
+              >
+                💧 Tokens
+              </a>
+            </div>
+          </div>
+
+          {/* Network Status */}
+          <div className="dashboard-card">
+            <div className="card-title">
+              <span>📊</span>
+              Network Status
+            </div>
+            <div className="stats-grid">
+              <div className="stat-item">
+                <span className="stat-value">Connected</span>
+                <span className="stat-label">Status</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-value">Vara</span>
+                <span className="stat-label">Network</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-value">SS58</span>
+                <span className="stat-label">Format</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-value">Active</span>
+                <span className="stat-label">Account</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-value">Mainnet</span>
+                <span className="stat-label">Chain</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-value">Secure</span>
+                <span className="stat-label">Protocol</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Security Info */}
+          <div className="dashboard-card">
+            <div className="card-title">
+              <span>🔐</span>
+              Security Features
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <div style={{ 
+                  width: '32px', 
+                  height: '32px', 
+                  background: '#f0fdf4', 
+                  borderRadius: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '16px'
+                }}>🛡️</div>
+                <div>
+                  <div style={{ fontSize: '14px', fontWeight: '600', color: '#1a1a1a' }}>
+                    Account Abstraction
                   </div>
-                  <div className="info-item">
-                    <span className="info-label">Token</span>
-                    <span className="info-value">VARA</span>
-                  </div>
-                  <div className="info-item">
-                    <span className="info-label">Format</span>
-                    <span className="info-value">SS58 Native</span>
-                  </div>
-                  <div className="info-item">
-                    <span className="info-label">Status</span>
-                    <span className="info-value connected">🟢 Connected</span>
+                  <div style={{ fontSize: '12px', color: '#64748b' }}>
+                    Keys securely managed
                   </div>
                 </div>
               </div>
-
-              <div className="info-card security-info">
-                <h4>🔐 Security Features</h4>
-                <div className="security-list">
-                  <div className="security-item">
-                    <span className="security-icon">🛡️</span>
-                    <div className="security-details">
-                      <strong>Account Abstraction</strong>
-                      <p>Keys securely managed</p>
-                    </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                <div style={{ 
+                  width: '32px', 
+                  height: '32px', 
+                  background: '#f0fdf4', 
+                  borderRadius: '8px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  fontSize: '16px'
+                }}>🔒</div>
+                <div>
+                  <div style={{ fontSize: '14px', fontWeight: '600', color: '#1a1a1a' }}>
+                    Passwordless Auth
                   </div>
-                  <div className="security-item">
-                    <span className="security-icon">🔒</span>
-                    <div className="security-details">
-                      <strong>Passwordless Auth</strong>
-                      <p>Email-based access</p>
-                    </div>
-                  </div>
-                  <div className="security-item">
-                    <span className="security-icon">⚡</span>
-                    <div className="security-details">
-                      <strong>Instant Transactions</strong>
-                      <p>No wallet popups</p>
-                    </div>
+                  <div style={{ fontSize: '12px', color: '#64748b' }}>
+                    Email-based verification
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Micropayments */}
+          <div className="dashboard-card">
+            <div className="card-title">
+              <span>💳</span>
+              Micropayments
+            </div>
+            <div style={{
+              background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
+              border: '1px solid #e2e8f0',
+              borderRadius: '12px',
+              padding: '16px',
+              textAlign: 'center',
+              position: 'relative'
+            }}>
+              <div style={{ 
+                fontSize: '24px', 
+                marginBottom: '8px',
+                opacity: '0.7'
+              }}>⚡</div>
+              <div style={{ 
+                fontSize: '16px', 
+                fontWeight: '600', 
+                color: '#16a34a',
+                marginBottom: '4px'
+              }}>
+                Fast & Efficient
+              </div>
+              <div style={{ 
+                fontSize: '12px', 
+                color: '#64748b',
+                lineHeight: '1.4',
+                marginBottom: '12px'
+              }}>
+                Send small payments instantly with minimal fees on Vara Network
+              </div>
+              <div style={{
+                display: 'inline-block',
+                padding: '4px 8px',
+                background: '#16a34a',
+                color: 'white',
+                borderRadius: '12px',
+                fontSize: '10px',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px'
+              }}>
+                Coming Soon
+              </div>
+            </div>
+          </div>
+
+          {/* A2A Payments Coming Soon */}
+          <div className="dashboard-card">
+            <div className="card-title">
+              <span>🔄</span>
+              A2A Payments
+            </div>
+            <div style={{
+              background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)',
+              border: '1px solid #e2e8f0',
+              borderRadius: '12px',
+              padding: '20px',
+              textAlign: 'center',
+              position: 'relative'
+            }}>
+              <div style={{ 
+                fontSize: '32px', 
+                marginBottom: '12px',
+                opacity: '0.7'
+              }}>🚀</div>
+              <div style={{ 
+                fontSize: '18px', 
+                fontWeight: '700', 
+                color: '#16a34a',
+                marginBottom: '8px'
+              }}>
+                Coming Soon
+              </div>
+              <div style={{ 
+                fontSize: '14px', 
+                color: '#64748b',
+                lineHeight: '1.5',
+                marginBottom: '12px'
+              }}>
+                Account-to-Account payments with advanced routing and smart contract integration
+              </div>
+              <div style={{
+                display: 'inline-block',
+                padding: '6px 12px',
+                background: '#16a34a',
+                color: 'white',
+                borderRadius: '20px',
+                fontSize: '11px',
+                fontWeight: '600',
+                textTransform: 'uppercase',
+                letterSpacing: '0.5px'
+              }}>
+                In Development
               </div>
             </div>
           </div>
