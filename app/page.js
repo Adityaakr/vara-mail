@@ -477,7 +477,7 @@ export default function VaraNetworkHome() {
               textTransform: 'uppercase',
               letterSpacing: '0.5px'
             }}>
-              Coming Soon
+              In Development
             </div>
             <div style={{
               width: '48px',
@@ -695,7 +695,6 @@ export default function VaraNetworkHome() {
                   cursor: 'pointer',
                   fontWeight: '600',
                   transition: 'all 0.2s ease',
-                  minWidth: '80px',
                   textAlign: 'center'
                 }}
               >
@@ -855,8 +854,8 @@ export default function VaraNetworkHome() {
                 <span className="stat-label">Account</span>
               </div>
               <div className="stat-item">
-                <span className="stat-value">Mainnet</span>
-                <span className="stat-label">Chain</span>
+                <span className="stat-value">Live</span>
+                <span className="stat-label">Network</span>
               </div>
               <div className="stat-item">
                 <span className="stat-value">Secure</span>
@@ -999,7 +998,7 @@ export default function VaraNetworkHome() {
                 lineHeight: '1.5',
                 marginBottom: '12px'
               }}>
-                Account-to-Account payments with advanced routing and smart contract integration
+                Agent-to-Agent payments
               </div>
               <div style={{
                 display: 'inline-block',
